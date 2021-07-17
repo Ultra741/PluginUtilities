@@ -1,0 +1,8 @@
+name: PluginUtilities
+version: ${project.version}
+main: ultradev.pluginutilities.Main
+api-version: 1.16
+authors: [ UltraDev ]
+commands:
+  test:
+    description: Test stuff.
