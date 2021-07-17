@@ -5,6 +5,10 @@ import org.bukkit.craftbukkit.v1_16_R3.inventory.CraftItemStack;
 
 public class NBTEditor {
 
+    /*
+    This class was coded by MarcusSlover
+     */
+
     public static NBTTagCompound getTag(org.bukkit.inventory.ItemStack item) {
 
         net.minecraft.server.v1_16_R3.ItemStack itemNms = CraftItemStack.asNMSCopy(item);
