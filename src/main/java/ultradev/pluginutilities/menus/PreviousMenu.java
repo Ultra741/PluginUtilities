@@ -8,7 +8,7 @@ import ultradev.pluginutilities.api.inventories.InventoryManager;
 public class PreviousMenu extends InventoryManager {
 
     @Override
-    public void setupInventory(Inventory inventory) {
+    public void setupInventory(Inventory inventory, Player player) {
 
     }
 

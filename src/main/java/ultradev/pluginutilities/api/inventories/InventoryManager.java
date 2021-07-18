@@ -6,7 +6,7 @@ import org.bukkit.inventory.Inventory;
 
 public abstract class InventoryManager {
 
-    public abstract void setupInventory(Inventory inventory);
+    public abstract void setupInventory(Inventory inventory, Player player);
 
     public abstract void onClick(InventoryClickEvent event, Player player, String buttonID);
 

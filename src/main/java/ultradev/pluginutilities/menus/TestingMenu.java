@@ -12,7 +12,7 @@ import ultradev.pluginutilities.api.util.ItemUtil;
 public class TestingMenu extends InventoryManager {
 
     @Override
-    public void setupInventory(Inventory inventory) {
+    public void setupInventory(Inventory inventory, Player player) {
         inventory.setItem(0, new ItemUtil(Material.DIAMOND_AXE)
         .setName("&6&lEpic Gamer Dirt")
                 .addLore("&6line 1!")
