@@ -5,8 +5,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import ultradev.pluginutilities.api.commands.CommandUtil;
-import ultradev.pluginutilities.api.inventories.InventoryMenu;
-import ultradev.pluginutilities.api.inventories.InventoryUtil;
 import ultradev.pluginutilities.api.util.MessageUtil;
 
 public class TestCommand implements CommandExecutor {
@@ -20,7 +18,7 @@ public class TestCommand implements CommandExecutor {
 
         Player player = CommandUtil.getPlayerFromSender(sender);
 
-        InventoryUtil.openInventory(InventoryMenu.TESTING_MENU, player);
+        // Open menu
 
         MessageUtil.success(player, "Successfully opened menu.");
 

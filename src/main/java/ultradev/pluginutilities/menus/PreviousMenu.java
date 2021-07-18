@@ -7,7 +7,6 @@ import ultradev.pluginutilities.api.inventories.InventoryManager;
 
 public class PreviousMenu extends InventoryManager {
 
-
     @Override
     public void setupInventory(Inventory inventory) {
 
@@ -17,4 +16,5 @@ public class PreviousMenu extends InventoryManager {
     public void onClick(InventoryClickEvent event, Player player, String buttonID) {
         event.setCancelled(true);
     }
+
 }

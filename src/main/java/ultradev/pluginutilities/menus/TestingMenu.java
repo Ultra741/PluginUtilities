@@ -11,7 +11,6 @@ import ultradev.pluginutilities.api.util.ItemUtil;
 
 public class TestingMenu extends InventoryManager {
 
-
     @Override
     public void setupInventory(Inventory inventory) {
         inventory.setItem(0, new ItemUtil(Material.DIAMOND_AXE)

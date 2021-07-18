@@ -67,6 +67,13 @@ public class ItemUtil {
 
     public ItemUtil setLore(List<String> lore) {
 
+        for(int i = 0; i < lore.size(); i++) {
+
+            String line = lore.get(i);
+            lore.set(i, ColorUtil.toColor(line));
+
+        }
+
         ItemMeta meta = getItemMeta();
         meta.setLore(lore);
         item.setItemMeta(meta);
