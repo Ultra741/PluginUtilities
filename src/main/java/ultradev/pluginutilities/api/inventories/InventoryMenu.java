@@ -1,42 +1,40 @@
 package ultradev.pluginutilities.api.inventories;
 
-import ultradev.pluginutilities.menus.PreviousMenu;
-import ultradev.pluginutilities.menus.TestingMenu;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import ultradev.pluginutilities.Main;
 
-public enum InventoryMenu {
-
-    TESTING_MENU(new TestingMenu(), "testing_menu", "Testing Menu"),
-    PREVIOUS_MENU(new PreviousMenu(), "previous_menu", "Previous Menu", 4);
-
-    private final InventoryManager manager;
+public abstract class InventoryMenu {
 
     private final String id;
     private final String title;
     private final int rows;
     private final boolean closeButton;
 
-    InventoryMenu(InventoryManager manager, String id, String title, int rows, boolean closeButton) {
-        this.manager = manager;
+    public InventoryMenu(String id, String title, int rows, boolean closeButton) {
+
         this.id = id;
         this.title = title;
         this.rows = rows;
         this.closeButton = closeButton;
+
+        if(!(Main.getMenus().contains(this))) {
+            Main.getMenus().add(this);
+        }
+
     }
 
-    InventoryMenu(InventoryManager manager, String id, String title, int rows) {
-        this(manager, id, title, rows, true);
+    public InventoryMenu(String id, String title, int rows) {
+        this(id, title, rows, true);
     }
 
-    InventoryMenu(InventoryManager manager, String id, String title, boolean closeButton) {
-        this(manager, id, title, 3, closeButton);
+    public InventoryMenu(String id, String title, boolean closeButton) {
+        this(id, title, 3, closeButton);
     }
 
-    InventoryMenu(InventoryManager manager, String id, String title) {
-        this(manager, id, title, 3, true);
-    }
-
-    public InventoryManager getManager() {
-        return manager;
+    public InventoryMenu(String id, String title) {
+        this(id, title, 3, true);
     }
 
     public String getID() {
@@ -54,5 +52,11 @@ public enum InventoryMenu {
     public boolean hasCloseButton() {
         return closeButton;
     }
+
+    public abstract void setupInventory(Inventory inventory, Player player);
+
+    public abstract void onClick(InventoryClickEvent event, Player player, String buttonID);
+
+    public abstract void openInventory(Player player);
 
 }

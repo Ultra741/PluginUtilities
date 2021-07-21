@@ -5,6 +5,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import ultradev.pluginutilities.Main;
 import ultradev.pluginutilities.api.nbt.NBTEditor;
 import ultradev.pluginutilities.api.util.EventUtil;
 
@@ -20,9 +21,10 @@ public class InventoryClick implements Listener {
         ItemStack item = event.getCurrentItem();
         String title = player.getOpenInventory().getTitle();
 
-        InventoryMenu[] menus = InventoryMenu.values();
+        for(int i = 0; i < Main.getMenus().size(); i++) {
 
-        for(InventoryMenu menu : menus) {
+            InventoryMenu menu = Main.getMenus().get(i);
+
             if(menu.getTitle().equals(title)) {
 
                 String buttonID = "";
@@ -44,19 +46,24 @@ public class InventoryClick implements Listener {
                         menuID = NBTEditor.getString(item, "menu");
                     }
 
-                    for(InventoryMenu previousMenu : menus) {
-                        if(previousMenu.getID().equals(menuID)) {
-                            InventoryUtil.openInventory(previousMenu, player);
+                    for(int x = 0; x < Main.getMenus().size(); x++) {
+
+                        InventoryMenu element = Main.getMenus().get(x);
+
+                        if(element.getID().equals(menuID)) {
+                            InventoryUtil.openInventory(element, player);
                             break;
                         }
+
                     }
 
                 }
 
-                menu.getManager().onClick(event, player, buttonID);
+                menu.onClick(event, player, buttonID);
                 break;
 
             }
+
         }
 
     }

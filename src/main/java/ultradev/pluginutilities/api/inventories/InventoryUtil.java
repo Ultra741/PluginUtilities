@@ -16,9 +16,11 @@ public class InventoryUtil {
             addCloseButton(inventory);
         }
 
-        menu.getManager().setupInventory(inventory, player);
+        menu.setupInventory(inventory, player);
 
         player.openInventory(inventory);
+
+        menu.openInventory(player);
 
     }
 
