@@ -7,7 +7,6 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import ultradev.pluginutilities.Main;
 import ultradev.pluginutilities.api.nbt.NBTEditor;
-import ultradev.pluginutilities.api.util.EventUtil;
 
 public class InventoryClick implements Listener {
 
@@ -16,7 +15,7 @@ public class InventoryClick implements Listener {
 
         if(!(event.getWhoClicked() instanceof Player)) return;
 
-        Player player = EventUtil.getWhoClicked(event);
+        Player player = (Player) event.getWhoClicked();
 
         ItemStack item = event.getCurrentItem();
         String title = player.getOpenInventory().getTitle();

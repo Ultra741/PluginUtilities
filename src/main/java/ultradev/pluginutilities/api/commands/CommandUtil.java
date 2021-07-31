@@ -32,10 +32,6 @@ public class CommandUtil {
 
     }
 
-    public static Player getPlayerFromSender(CommandSender sender) {
-        return (Player) sender;
-    }
-
     public static boolean checkCommand(String command, CommandSender sender, boolean checkPlayer, boolean checkPermission) {
 
         if(checkPlayer) {
@@ -45,7 +41,7 @@ public class CommandUtil {
         }
 
         if(checkPermission) {
-            return checkPermission(getPlayerFromSender(sender), command.toLowerCase(), true);
+            return checkPermission((Player) sender, command.toLowerCase(), true);
         }
 
         return true;

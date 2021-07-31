@@ -12,8 +12,4 @@ public class EventUtil {
         Bukkit.getServer().getPluginManager().registerEvents(listener, Main.getInstance());
     }
 
-    public static Player getWhoClicked(InventoryClickEvent event) {
-        return (Player) event.getWhoClicked();
-    }
-
 }
