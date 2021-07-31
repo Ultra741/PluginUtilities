@@ -12,8 +12,6 @@ public final class Main extends JavaPlugin {
 
     private static Main main;
 
-    public static final String pluginName = "PluginUtilities";
-
     private static final List<InventoryMenu> menus = new ArrayList<>();
 
     @Override

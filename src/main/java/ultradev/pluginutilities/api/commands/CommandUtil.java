@@ -22,7 +22,7 @@ public class CommandUtil {
 
     public static boolean checkPermission(Player player, String permission, boolean sendError) {
 
-        boolean hasPermission = player.hasPermission(Main.pluginName.toLowerCase() + "." + permission);
+        boolean hasPermission = player.hasPermission(permission);
 
         if(sendError && !(hasPermission)) {
             MessageUtil.error(player, CommandError.NO_PERMISSION);
